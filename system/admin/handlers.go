@@ -1502,7 +1502,7 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 
 	btn := `<div class="col s3">
 		<a href="/admin/edit?type=` + t + `" class="btn new-post waves-effect waves-light">
-			New ` + t + `
+			新 ` + t + `
 		</a>`
 
 	if _, ok := pt.(format.CSVFormattable); ok {
