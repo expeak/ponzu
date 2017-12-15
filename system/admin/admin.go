@@ -58,7 +58,7 @@ var mainAdminHTML = `
                                     
                     {{ range $t, $f := .Types }}
                     <div class="row collection-item">
-                        <li><a class="col s12" href="/admin/contents?type={{ $t }}"><i class="tiny left material-icons">playlist_add</i>{{ $t }}</a></li>
+                        <li><a class="col s12" href="/admin/contents?type={{ $t }}"><i class="tiny left material-icons">playlist_add</i>{{ $f }}</a></li>
                     </div>
                     {{ end }}
 
@@ -90,7 +90,7 @@ var endAdminHTML = `
 
 type admin struct {
 	Logo    string
-	Types   map[string]func() interface{}
+	Types   map[string]string
 	Subview template.HTML
 }
 
@@ -105,9 +105,17 @@ func Admin(view []byte) (_ []byte, err error) {
 		cfg = []byte("")
 	}
 
+	types := make(map[string]string)
+	for k, f := range item.Types {
+		types[k] = k
+		if vv, ok := f().(item.Identifiable); ok {
+			types[k] = vv.TypeName()
+		}
+	}
+
 	a := admin{
 		Logo:    string(cfg),
-		Types:   item.Types,
+		Types:   types, //item.Types,
 		Subview: template.HTML(view),
 	}
 

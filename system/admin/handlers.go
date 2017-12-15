@@ -1081,7 +1081,7 @@ func uploadContentsHandler(res http.ResponseWriter, req *http.Request) {
 	</script>
 	`
 
-	btn := `<div class="col s3"><a href="/admin/edit/upload" class="btn new-post waves-effect waves-light">新上传</a></div></div>`
+	btn := `<div class="col s3"><a href="/admin/edit/upload" class="btn new-post waves-effect waves-light">上传</a></div></div>`
 	html = html + b.String() + script + btn
 
 	adminView, err := Admin([]byte(html))
@@ -1128,7 +1128,10 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 	}
 
 	pt := item.Types[t]()
-
+	typename := t
+	if p, ok := pt.(item.Identifiable); ok {
+		typename = p.TypeName()
+	}
 	p, ok := pt.(editor.Editable)
 	if !ok {
 		res.WriteHeader(http.StatusInternalServerError)
@@ -1201,7 +1204,7 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 					<div class="row">
 					<div class="col s8">
 						<div class="row">
-							<div class="card-title col s7">` + t + ` 项目</div>
+							<div class="card-title col s7">` + typename + ` 项目</div>
 							<div class="col s5 input-field inline">
 								<select class="browser-default __ponzu sort-order">
 									<option value="DESC">新 - 旧</option>
@@ -1502,7 +1505,7 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 
 	btn := `<div class="col s3">
 		<a href="/admin/edit?type=` + t + `" class="btn new-post waves-effect waves-light">
-			新 ` + t + `
+			新增 ` + typename + `
 		</a>`
 
 	if _, ok := pt.(format.CSVFormattable); ok {
@@ -2578,7 +2581,7 @@ func searchHandler(res http.ResponseWriter, req *http.Request) {
 
 	btn := `<div class="col s3">
 		<a href="/admin/edit?type=` + t + `" class="btn new-post waves-effect waves-light">
-			新 ` + t + `
+			新增 ` + t + `
 		</a>`
 
 	html += b.String() + script + btn + `</div></div>`
@@ -2683,7 +2686,7 @@ func uploadSearchHandler(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	btn := `<div class="col s3"><a href="/admin/edit/upload" class="btn new-post waves-effect waves-light">新上传</a></div></div>`
+	btn := `<div class="col s3"><a href="/admin/edit/upload" class="btn new-post waves-effect waves-light">上传</a></div></div>`
 	html = html + b.String() + btn
 
 	adminView, err := Admin([]byte(html))
