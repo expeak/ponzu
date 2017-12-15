@@ -496,8 +496,8 @@ var analyticsHTML = `
 <div class="analytics">
 <div class="card">
 <div class="card-content">
-    <p class="right">Data range: {{ .from }} - {{ .to }} (UTC)</p>
-    <div class="card-title">API Requests</div>
+    <p class="right">数据范围： {{ .from }} - {{ .to }} (UTC)</p>
+    <div class="card-title">API 请求</div>
     <canvas id="analytics-chart"></canvas>
     <script>
     var target = document.getElementById("analytics-chart");
@@ -510,7 +510,7 @@ var analyticsHTML = `
             labels: [{{ range $date := .dates }} "{{ $date }}",  {{ end }}],
             datasets: [{
                 type: 'line',
-                label: 'Unique Clients',
+                label: '独立客户端',
                 data: $.parseJSON({{ .unique }}),
                 backgroundColor: 'rgba(76, 175, 80, 0.2)',
                 borderColor: 'rgba(76, 175, 80, 1)',
@@ -518,7 +518,7 @@ var analyticsHTML = `
             },
             {
                 type: 'bar',
-                label: 'Total Requests',
+                label: '总请求',
                 data: $.parseJSON({{ .total }}),
                 backgroundColor: 'rgba(33, 150, 243, 0.2)',
                 borderColor: 'rgba(33, 150, 243, 1)',
@@ -561,8 +561,8 @@ var err400HTML = []byte(`
 <div class="error-page e400 col s6">
 <div class="card">
 <div class="card-content">
-    <div class="card-title"><b>400</b> Error: Bad Request</div>
-    <blockquote>Sorry, the request was unable to be completed.</blockquote>
+    <div class="card-title"><b>400</b> 错误： 错误的请求！</div>
+    <blockquote>对不起，您的请求无法完成！</blockquote>
 </div>
 </div>
 </div>
@@ -577,8 +577,8 @@ var err404HTML = []byte(`
 <div class="error-page e404 col s6">
 <div class="card">
 <div class="card-content">
-    <div class="card-title"><b>404</b> Error: Not Found</div>
-    <blockquote>Sorry, the page you requested could not be found.</blockquote>
+    <div class="card-title"><b>404</b> 错误: 对象未找到</div>
+    <blockquote>对不起，您要找的页面无法找到！</blockquote>
 </div>
 </div>
 </div>
@@ -593,8 +593,8 @@ var err405HTML = []byte(`
 <div class="error-page e405 col s6">
 <div class="card">
 <div class="card-content">
-    <div class="card-title"><b>405</b> Error: Method Not Allowed</div>
-    <blockquote>Sorry, the method of your request is not allowed.</blockquote>
+    <div class="card-title"><b>405</b> 错误: 方法不允许</div>
+    <blockquote>对不起，请求方法不允许</blockquote>
 </div>
 </div>
 </div>
@@ -609,8 +609,8 @@ var err500HTML = []byte(`
 <div class="error-page e500 col s6">
 <div class="card">
 <div class="card-content">
-    <div class="card-title"><b>500</b> Error: Internal Service Error</div>
-    <blockquote>Sorry, something unexpectedly went wrong.</blockquote>
+    <div class="card-title"><b>500</b> 错误: 服务器内部错误</div>
+    <blockquote>对不起，不可预知的错误发生了！</blockquote>
 </div>
 </div>
 </div>
@@ -625,7 +625,7 @@ var errMessageHTML = `
 <div class="error-page eMsg col s6">
 <div class="card">
 <div class="card-content">
-    <div class="card-title"><b>Error:&nbsp;</b>%s</div>
+    <div class="card-title"><b>错误：&nbsp;</b>%s</div>
     <blockquote>%s</blockquote>
 </div>
 </div>

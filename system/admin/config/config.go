@@ -31,8 +31,8 @@ type Config struct {
 
 const (
 	dbBackupInfo = `
-		<p class="flow-text">Database Backup Credentials:</p>
-		<p>Add a user name and password to download a backup of your data via HTTP.</p>
+		<p class="flow-text">数据库备份认证：</p>
+		<p>添加一个用户名和密码以限制您的数据库备份文件从HTTP下载。</p>
 	`
 )
 
@@ -100,21 +100,21 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 			View: editor.Checkbox("DisableCORS", c, map[string]string{
 				"label": "禁用 CORS （如此则仅" + c.Domain + "可以访问到您的数据）",
 			}, map[string]string{
-				"true": "Disable CORS",
+				"true": "禁用 CORS",
 			}),
 		},
 		editor.Field{
 			View: editor.Checkbox("DisableGZIP", c, map[string]string{
 				"label": "禁用 GZIP （禁用压缩GZIP能提升服务器速度，但是消耗更多带宽）",
 			}, map[string]string{
-				"true": "Disable GZIP",
+				"true": "禁用 GZIP",
 			}),
 		},
 		editor.Field{
 			View: editor.Checkbox("DisableHTTPCache", c, map[string]string{
 				"label": "禁用 HTTP 缓存 （重写 'Cache-Control' 头消息）",
 			}, map[string]string{
-				"true": "Disable HTTP Cache",
+				"true": "禁用 HTTP 缓存",
 			}),
 		},
 		editor.Field{
@@ -127,7 +127,7 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 			View: editor.Checkbox("CacheInvalidate", c, map[string]string{
 				"label": "保存的同时使缓存失效",
 			}, map[string]string{
-				"invalidate": "Invalidate Cache",
+				"invalidate": "使缓存失效",
 			}),
 		},
 		editor.Field{
