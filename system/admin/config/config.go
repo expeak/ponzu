@@ -44,14 +44,14 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 	view, err := editor.Form(c,
 		editor.Field{
 			View: editor.Input("Name", c, map[string]string{
-				"label":       "Site Name",
-				"placeholder": "Add a name to this site (internal use only)",
+				"label":       "站点名称",
+				"placeholder": "设置一个站点名称（仅供内部使用）",
 			}),
 		},
 		editor.Field{
 			View: editor.Input("Domain", c, map[string]string{
-				"label":       "Domain Name (required for SSL certificate)",
-				"placeholder": "e.g. www.example.com or example.com",
+				"label":       "域名 （配置SSL证书时需要）",
+				"placeholder": "例如： www.example.com 或 example.com",
 			}),
 		},
 		editor.Field{
@@ -71,12 +71,12 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 		},
 		editor.Field{
 			View: editor.Input("AdminEmail", c, map[string]string{
-				"label": "Administrator Email (notified of internal system information)",
+				"label": "管理员邮件地址（消息提醒和内部信息接收用）",
 			}),
 		},
 		editor.Field{
 			View: editor.Input("ClientSecret", c, map[string]string{
-				"label":    "Client Secret (used to validate requests, DO NOT SHARE)",
+				"label":    "客户端密码（用于验证请求，一般人别告诉他）",
 				"disabled": "true",
 			}),
 		},
@@ -87,7 +87,7 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 		},
 		editor.Field{
 			View: editor.Input("Etag", c, map[string]string{
-				"label":    "Etag Header (used to cache resources)",
+				"label":    "Etag头消息（用于缓存控制）",
 				"disabled": "true",
 			}),
 		},
@@ -98,34 +98,34 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 		},
 		editor.Field{
 			View: editor.Checkbox("DisableCORS", c, map[string]string{
-				"label": "Disable CORS (so only " + c.Domain + " can fetch your data)",
+				"label": "禁用 CORS （如此则仅" + c.Domain + "可以访问到您的数据）",
 			}, map[string]string{
 				"true": "Disable CORS",
 			}),
 		},
 		editor.Field{
 			View: editor.Checkbox("DisableGZIP", c, map[string]string{
-				"label": "Disable GZIP (will increase server speed, but also bandwidth)",
+				"label": "禁用 GZIP （禁用压缩GZIP能提升服务器速度，但是消耗更多带宽）",
 			}, map[string]string{
 				"true": "Disable GZIP",
 			}),
 		},
 		editor.Field{
 			View: editor.Checkbox("DisableHTTPCache", c, map[string]string{
-				"label": "Disable HTTP Cache (overrides 'Cache-Control' header)",
+				"label": "禁用 HTTP 缓存 （重写 'Cache-Control' 头消息）",
 			}, map[string]string{
 				"true": "Disable HTTP Cache",
 			}),
 		},
 		editor.Field{
 			View: editor.Input("CacheMaxAge", c, map[string]string{
-				"label": "Max-Age value for HTTP caching (in seconds, 0 = 2592000)",
+				"label": "HTTP缓存的Max-Age值（单位：秒，0 ～ 259200）",
 				"type":  "text",
 			}),
 		},
 		editor.Field{
 			View: editor.Checkbox("CacheInvalidate", c, map[string]string{
-				"label": "Invalidate cache on save",
+				"label": "保存的同时使缓存失效",
 			}, map[string]string{
 				"invalidate": "Invalidate Cache",
 			}),
@@ -135,15 +135,15 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 		},
 		editor.Field{
 			View: editor.Input("BackupBasicAuthUser", c, map[string]string{
-				"label":       "HTTP Basic Auth User",
-				"placeholder": "Enter a user name for Basic Auth access",
+				"label":       "HTTP认证用户名",
+				"placeholder": "输入一个用户名",
 				"type":        "text",
 			}),
 		},
 		editor.Field{
 			View: editor.Input("BackupBasicAuthPassword", c, map[string]string{
-				"label":       "HTTP Basic Auth Password",
-				"placeholder": "Enter a password for Basic Auth access",
+				"label":       "HTTP认证密码",
+				"placeholder": "输入一个密码",
 				"type":        "password",
 			}),
 		},
@@ -155,7 +155,7 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 	open := []byte(`
 	<div class="card">
 		<div class="card-content">
-			<div class="card-title">System Configuration</div>
+			<div class="card-title">系统配置</div>
 		</div>
 		<form action="/admin/configure" method="post">
 	`)

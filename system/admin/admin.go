@@ -126,30 +126,28 @@ var initAdminHTML = `
 <div class="init col s5">
 <div class="card">
 <div class="card-content">
-    <div class="card-title">Welcome!</div>
-    <blockquote>You need to initialize your system by filling out the form below. All of 
-    this information can be updated later on, but you will not be able to start 
-    without first completing this step.</blockquote>
+    <div class="card-title">欢迎！</div>
+    <blockquote>在您使用系统之前需要填写下面的配置以初始化。所有的信息后面还可以更新，但是当前您需要先初始化才能开始使用。</blockquote>
     <form method="post" action="/admin/init" class="row">
-        <div>Configuration</div>
+        <div>设置</div>
         <div class="input-field col s12">        
-            <input placeholder="Enter the name of your site (interal use only)" class="validate required" type="text" id="name" name="name"/>
-            <label for="name" class="active">Site Name</label>
+            <input placeholder="输入您的站点名称（仅内部使用）" class="validate required" type="text" id="name" name="name"/>
+            <label for="name" class="active">站点名称</label>
         </div>
         <div class="input-field col s12">        
-            <input placeholder="Used for acquiring SSL certificate (e.g. www.example.com or  example.com)" class="validate" type="text" id="domain" name="domain"/>
-            <label for="domain" class="active">Domain</label>
+            <input placeholder="获取SSL证书时候需要（例如： www.example.com 或  example.com）" class="validate" type="text" id="domain" name="domain"/>
+            <label for="domain" class="active">域名</label>
         </div>
-        <div>Admin Details</div>
+        <div>管理员</div>
         <div class="input-field col s12">
-            <input placeholder="Your email address e.g. you@example.com" class="validate required" type="email" id="email" name="email"/>
-            <label for="email" class="active">Email</label>
+            <input placeholder="您的邮箱地址，比如：you@example.com" class="validate required" type="email" id="email" name="email"/>
+            <label for="email" class="active">邮箱</label>
         </div>
         <div class="input-field col s12">
-            <input placeholder="Enter a strong password" class="validate required" type="password" id="password" name="password"/>
-            <label for="password" class="active">Password</label>        
+            <input placeholder="搞个厉害点的密码吧" class="validate required" type="password" id="password" name="password"/>
+            <label for="password" class="active">密码</label>        
         </div>
-        <button class="btn waves-effect waves-light right">Start</button>
+        <button class="btn waves-effect waves-light right">开始</button>
     </form>
 </div>
 </div>
@@ -212,19 +210,19 @@ var loginAdminHTML = `
 <div class="init col s5">
 <div class="card">
 <div class="card-content">
-    <div class="card-title">Welcome!</div>
-    <blockquote>Please log in to the system using your email address and password.</blockquote>
+    <div class="card-title">欢迎！</div>
+    <blockquote>请使用您的邮箱地址和密码登录系统！</blockquote>
     <form method="post" action="/admin/login" class="row">
         <div class="input-field col s12">
-            <input placeholder="Enter your email address e.g. you@example.com" class="validate required" type="email" id="email" name="email"/>
-            <label for="email" class="active">Email</label>
+            <input placeholder="您的邮箱地址，比如：you@example.com" class="validate required" type="email" id="email" name="email"/>
+            <label for="email" class="active">邮箱</label>
         </div>
         <div class="input-field col s12">
-            <input placeholder="Enter your password" class="validate required" type="password" id="password" name="password"/>
-            <a href="/admin/recover">Forgot password?</a>            
-            <label for="password" class="active">Password</label>  
+            <input placeholder="输入密码" class="validate required" type="password" id="password" name="password"/>
+            <a href="/admin/recover">密码忘了？</a>            
+            <label for="password" class="active">密码</label>  
         </div>
-        <button class="btn waves-effect waves-light right">Log in</button>
+        <button class="btn waves-effect waves-light right">登录</button>
     </form>
 </div>
 </div>
@@ -267,16 +265,16 @@ var forgotPasswordHTML = `
 <div class="init col s5">
 <div class="card">
 <div class="card-content">
-    <div class="card-title">Account Recovery</div>
-    <blockquote>Please enter the email for your account and a recovery message will be sent to you at this address. Check your spam folder in case the message was flagged.</blockquote>
+    <div class="card-title">账户重置</div>
+    <blockquote>请输入您的帐户邮箱地址，您这个邮箱地址将会收到一封重置账户的邮件，然后根据邮件指引重置您的帐户。别忘了检查一下邮箱的垃圾信件分组哦！</blockquote>
     <form method="post" action="/admin/recover" class="row" enctype="multipart/form-data">
         <div class="input-field col s12">
-            <input placeholder="Enter your email address e.g. you@example.com" class="validate required" type="email" id="email" name="email"/>
-            <label for="email" class="active">Email</label>
+            <input placeholder="您的邮箱地址，比如：you@example.com" class="validate required" type="email" id="email" name="email"/>
+            <label for="email" class="active">邮箱</label>
         </div>
         
-        <a href="/admin/recover/key">Already have a recovery key?</a>
-        <button class="btn waves-effect waves-light right">Send Recovery Email</button>
+        <a href="/admin/recover/key">已经有一个重置验证码？</a>
+        <button class="btn waves-effect waves-light right">发送重置邮件</button>
     </form>
 </div>
 </div>
@@ -319,25 +317,25 @@ var recoveryKeyHTML = `
 <div class="init col s5">
 <div class="card">
 <div class="card-content">
-    <div class="card-title">Account Recovery</div>
-    <blockquote>Please check for your recovery key inside an email sent to the address you provided. Check your spam folder in case the message was flagged.</blockquote>
+    <div class="card-title">账户重置</div>
+    <blockquote>请检查一下您提供的邮箱地址是否收到一封包含了一个重置验证码的邮件，别忘了垃圾信件分组也找找！</blockquote>
     <form method="post" action="/admin/recover/key" class="row" enctype="multipart/form-data">
         <div class="input-field col s12">
-            <input placeholder="Enter your recovery key" class="validate required" type="text" id="key" name="key"/>
-            <label for="key" class="active">Recovery Key</label>
+            <input placeholder="输入重置验证码" class="validate required" type="text" id="key" name="key"/>
+            <label for="key" class="active">重置验证码</label>
         </div>
 
         <div class="input-field col s12">
-            <input placeholder="Enter your email address e.g. you@example.com" class="validate required" type="email" id="email" name="email"/>
-            <label for="email" class="active">Email</label>
+            <input placeholder="您的邮箱地址，比如：you@example.com" class="validate required" type="email" id="email" name="email"/>
+            <label for="email" class="active">邮箱地址</label>
         </div>
 
         <div class="input-field col s12">
-            <input placeholder="Enter your password" class="validate required" type="password" id="password" name="password"/>
-            <label for="password" class="active">New Password</label>
+            <input placeholder="输入新密码" class="validate required" type="password" id="password" name="password"/>
+            <label for="password" class="active">新密码</label>
         </div>
         
-        <button class="btn waves-effect waves-light right">Update Account</button>
+        <button class="btn waves-effect waves-light right">更新账户</button>
     </form>
 </div>
 </div>
@@ -380,54 +378,54 @@ func RecoveryKey() ([]byte, error) {
 func UsersList(req *http.Request) ([]byte, error) {
 	html := `
     <div class="card user-management">
-        <div class="card-title">Edit your account:</div>    
+        <div class="card-title">编辑您的帐户</div>    
         <form class="row" enctype="multipart/form-data" action="/admin/configure/users/edit" method="post">
             <div class="col s9">
-                <label class="active">Email Address</label>
+                <label class="active">邮件地址</label>
                 <input type="email" name="email" value="{{ .User.Email }}"/>
             </div>
 
             <div class="col s9">
-                <div>To approve changes, enter your password:</div>
+                <div>请输入您的密码以继续更改</div>
                 
-                <label class="active">Current Password</label>
+                <label class="active">当前密码</label>
                 <input type="password" name="password"/>
             </div>
 
             <div class="col s9">
-                <label class="active">New Password: (leave blank if no password change needed)</label>
+                <label class="active">新密码：（留空将不会更新密码）</label>
                 <input name="new_password" type="password"/>
             </div>
 
             <div class="col s9">                        
-                <button class="btn waves-effect waves-light green right" type="submit">Save</button>
+                <button class="btn waves-effect waves-light green right" type="submit">保存</button>
             </div>
         </form>
 
-        <div class="card-title">Add a new user:</div>        
+        <div class="card-title">添加一个新用户</div>        
         <form class="row" enctype="multipart/form-data" action="/admin/configure/users" method="post">
             <div class="col s9">
-                <label class="active">Email Address</label>
+                <label class="active">邮件地址</label>
                 <input type="email" name="email" value=""/>
             </div>
 
             <div class="col s9">
-                <label class="active">Password</label>
+                <label class="active">密码</label>
                 <input type="password" name="password"/>
             </div>
 
             <div class="col s9">            
-                <button class="btn waves-effect waves-light green right" type="submit">Add User</button>
+                <button class="btn waves-effect waves-light green right" type="submit">添加用户</button>
             </div>   
         </form>        
 
-        <div class="card-title">Remove Admin Users</div>        
+        <div class="card-title">删除管理员用户</div>        
         <ul class="users row">
             {{ range .Users }}
             <li class="col s9">
                 {{ .Email }}
                 <form enctype="multipart/form-data" class="delete-user __ponzu right" action="/admin/configure/users/delete" method="post">
-                    <span>Delete</span>
+                    <span>删除</span>
                     <input type="hidden" name="email" value="{{ .Email }}"/>
                     <input type="hidden" name="id" value="{{ .ID }}"/>
                 </form>
@@ -441,7 +439,7 @@ func UsersList(req *http.Request) ([]byte, error) {
         $(function() {
             var del = $('.delete-user.__ponzu span');
             del.on('click', function(e) {
-                if (confirm("[Ponzu] Please confirm:\n\nAre you sure you want to delete this user?\nThis cannot be undone.")) {
+                if (confirm("请确认：\n\n您是否确定删除该用户？\n本操作无法恢复！")) {
                     $(e.target).parent().submit();
                 }
             });
