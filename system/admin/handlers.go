@@ -1242,7 +1242,7 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 						<div class="input-field post-search inline">
 							<label class="active">搜索：</label>
 							<i class="right material-icons search-icon">search</i>
-							<input class="search" name="q" type="text" placeholder="在所有的 ` + t + ` 中搜索" class="search"/>
+							<input class="search" name="q" type="text" placeholder="在所有的 ` + typename + ` 中搜索" class="search"/>
 							<input type="hidden" name="type" value="` + t + `" />
 							<input type="hidden" name="status" value="` + status + `" />
 						</div>
@@ -2481,18 +2481,21 @@ func searchHandler(res http.ResponseWriter, req *http.Request) {
 	}
 
 	post := pt()
-
+	typename := t
+	if v, ok := post.(item.Identifiable); ok {
+		typename = v.TypeName()
+	}
 	p := post.(editor.Editable)
 
 	html := `<div class="col s9 card">		
 					<div class="card-content">
 					<div class="row">
-					<div class="card-title col s7">共` + t + ` 个结果</div>	
+					<div class="card-title col s7">搜索 ` + typename + ` 结果</div>
 					<form class="col s4" action="/admin/contents/search" method="get">
 						<div class="input-field post-search inline">
 							<label class="active">搜索：</label>
 							<i class="right material-icons search-icon">search</i>
-							<input class="search" name="q" type="text" placeholder="从所有的 ` + t + ` 中搜索" class="search"/>
+							<input class="search" name="q" type="text" placeholder="从所有的 ` + typename + ` 中搜索" class="search"/>
 							<input type="hidden" name="type" value="` + t + `" />
 							<input type="hidden" name="status" value="` + status + `" />
 						</div>
@@ -2581,7 +2584,7 @@ func searchHandler(res http.ResponseWriter, req *http.Request) {
 
 	btn := `<div class="col s3">
 		<a href="/admin/edit?type=` + t + `" class="btn new-post waves-effect waves-light">
-			新增 ` + t + `
+			新增 ` + typename + `
 		</a>`
 
 	html += b.String() + script + btn + `</div></div>`
