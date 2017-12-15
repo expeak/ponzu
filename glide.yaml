@@ -1,5 +1,26 @@
 package: github.com/ponzu-cms/ponzu
 import:
+- package: golang.org/x/sys
+  vcs: git
+  repo: https://github.com/golang/sys.git
+- package: golang.org/x/crypto/acme/autocert
+  vcs: git
+  repo: https://github.com/golang/crypto.git
+- package: golang.org/x/crypto/bcrypt
+  vcs: git
+  repo: https://github.com/golang/crypto.git
+- package: golang.org/x/net/context
+  vcs: git
+  repo: https://github.com/golang/net.git
+- package: golang.org/x/net/http2
+  vcs: git
+  repo: https://github.com/golang/net.git
+- package: golang.org/x/text/transform
+  vcs: git
+  repo: https://github.com/golang/text.git
+- package: golang.org/x/text/unicode/norm
+  vcs: git
+  repo: https://github.com/golang/text.git
 - package: github.com/blevesearch/bleve
   version: ^0.5.0
   subpackages:
@@ -18,18 +39,3 @@ import:
   version: ^1.0.4
 - package: github.com/tidwall/sjson
   version: ^1.0.0
-- package: golang.org/x/crypto/acme/autocert
-  vcs: git
-  repo: https://github.com/golang/crypto.git
-- package: golang.org/x/crypto/bcrypt
-  vcs: git
-  repo: https://github.com/golang/crypto.git
-- package: golang.org/x/net/http2
-  vcs: git
-  repo: https://github.com/golang/net.git
-- package: golang.org/x/text/transform
-  vcs: git
-  repo: https://github.com/golang/text.git
-- package: golang.org/x/text/unicode/norm
-  vcs: git
-  repo: https://github.com/golang/text.git

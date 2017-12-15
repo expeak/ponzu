@@ -42,7 +42,7 @@ var startAdminHTML = `<!doctype html>
                 <a class="brand-logo" href="/admin">{{ .Logo }}</a>
 
                 <ul class="right">
-                    <li><a href="/admin/logout">Logout</a></li>
+                    <li><a href="/admin/logout">注销</a></li>
                 </ul>
             </div>
             </nav>
@@ -54,7 +54,7 @@ var mainAdminHTML = `
             <div class="left-nav col s3">
                 <div class="card">
                 <ul class="card-content collection">
-                    <div class="card-title">Content</div>
+                    <div class="card-title">内容</div>
                                     
                     {{ range $t, $f := .Types }}
                     <div class="row collection-item">
@@ -62,12 +62,12 @@ var mainAdminHTML = `
                     </div>
                     {{ end }}
 
-                    <div class="card-title">System</div>                                
+                    <div class="card-title">系统</div>                                
                     <div class="row collection-item">
-                        <li><a class="col s12" href="/admin/configure"><i class="tiny left material-icons">settings</i>Configuration</a></li>
-                        <li><a class="col s12" href="/admin/configure/users"><i class="tiny left material-icons">supervisor_account</i>Admin Users</a></li>
-                        <li><a class="col s12" href="/admin/uploads"><i class="tiny left material-icons">swap_vert</i>Uploads</a></li>
-                        <li><a class="col s12" href="/admin/addons"><i class="tiny left material-icons">settings_input_svideo</i>Addons</a></li>
+                        <li><a class="col s12" href="/admin/configure"><i class="tiny left material-icons">settings</i>设置</a></li>
+                        <li><a class="col s12" href="/admin/configure/users"><i class="tiny left material-icons">supervisor_account</i>管理员</a></li>
+                        <li><a class="col s12" href="/admin/uploads"><i class="tiny left material-icons">swap_vert</i>上传</a></li>
+                        <li><a class="col s12" href="/admin/addons"><i class="tiny left material-icons">settings_input_svideo</i>组件</a></li>
                     </div>
                 </ul>
                 </div>
@@ -82,7 +82,7 @@ var endAdminHTML = `
         </div>
         <footer class="row">
             <div class="col s12">
-                <p class="center-align">Powered by &copy; <a target="_blank" href="https://ponzu-cms.org">Ponzu</a> &nbsp;&vert;&nbsp; open-sourced by <a target="_blank" href="https://www.bosssauce.it">Boss Sauce Creative</a></p>
+                <p class="center-align">Powered by &copy; Expeak  &nbsp;&vert;&nbsp;</p>
             </div>     
         </footer>
     </body>
