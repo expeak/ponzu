@@ -44,7 +44,7 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 	view, err := editor.Form(c,
 		editor.Field{
 			View: editor.Input("Name", c, map[string]string{
-				"label":       "站点名称",
+				"label":       "站点名称（仅供内部使用）",
 				"placeholder": "设置一个站点名称（仅供内部使用）",
 			}),
 		},
@@ -155,7 +155,7 @@ func (c *Config) MarshalEditor() ([]byte, error) {
 	open := []byte(`
 	<div class="card">
 		<div class="card-content">
-			<div class="card-title">系统配置</div>
+			<div class="card-title">系统设置</div>
 		</div>
 		<form action="/admin/configure" method="post">
 	`)

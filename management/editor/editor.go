@@ -63,34 +63,41 @@ func Form(post Editable, fields ...Field) ([]byte, error) {
 
 	publishTime := `
 <div class="row content-only __ponzu">
+	<div class="input-field col s4">
+		<label class="active">年</label>
+		<input value="" class="year __ponzu" maxlength="4" type="text" placeholder="YYYY" />
+	</div>
 	<div class="input-field col s6">
 		<label class="active">月</label>
 		<select class="month __ponzu browser-default">
-			<option value="1">01</option>
-			<option value="2">02</option>
-			<option value="3">03</option>
-			<option value="4">04</option>
-			<option value="5">05</option>
-			<option value="6">06</option>
-			<option value="7">07</option>
-			<option value="8">08</option>
-			<option value="9">09</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
+			<option value="1">一月</option>
+			<option value="2">二月</option>
+			<option value="3">三月</option>
+			<option value="4">四月</option>
+			<option value="5">五月</option>
+			<option value="6">六月</option>
+			<option value="7">七月</option>
+			<option value="8">八月</option>
+			<option value="9">九月</option>
+			<option value="10">十月</option>
+			<option value="11">十一月</option>
+			<option value="12">十二月</option>
 		</select>
 	</div>
 	<div class="input-field col s2">
 		<label class="active">日</label>
 		<input value="" class="day __ponzu" maxlength="2" type="text" placeholder="DD" />
 	</div>
-	<div class="input-field col s4">
-		<label class="active">年</label>
-		<input value="" class="year __ponzu" maxlength="4" type="text" placeholder="YYYY" />
-	</div>
 </div>
 
 <div class="row content-only __ponzu">
+	<div class="input-field col s4">
+		<label class="active">时段</label>
+		<select class="period __ponzu browser-default">
+			<option value="AM">上午</option>
+			<option value="PM">下午</option>
+		</select>
+	</div>
 	<div class="input-field col s3">
 		<label class="active">小时</label>
 		<input value="" class="hour __ponzu" maxlength="2" type="text" placeholder="HH" />
@@ -99,13 +106,6 @@ func Form(post Editable, fields ...Field) ([]byte, error) {
 	<div class="input-field col s3">
 		<label class="active">分钟</label>
 		<input value="" class="minute __ponzu" maxlength="2" type="text" placeholder="MM" />
-	</div>
-	<div class="input-field col s4">
-		<label class="active">时段</label>
-		<select class="period __ponzu browser-default">
-			<option value="AM">上午</option>
-			<option value="PM">下午</option>
-		</select>
 	</div>
 </div>
 	`
