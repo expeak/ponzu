@@ -1,0 +1,35 @@
+package: github.com/ponzu-cms/ponzu
+import:
+- package: github.com/blevesearch/bleve
+  version: ^0.5.0
+  subpackages:
+  - mapping
+- package: github.com/boltdb/bolt
+  version: ^1.3.1
+- package: github.com/gorilla/schema
+- package: github.com/nilslice/email
+- package: github.com/nilslice/jwt
+  version: ^1.0.0
+- package: github.com/satori/go.uuid
+  version: ^1.1.0
+- package: github.com/spf13/cobra
+  version: ^0.0.1
+- package: github.com/tidwall/gjson
+  version: ^1.0.4
+- package: github.com/tidwall/sjson
+  version: ^1.0.0
+- package: golang.org/x/crypto/acme/autocert
+  vcs: git
+  repo: https://github.com/golang/crypto.git
+- package: golang.org/x/crypto/bcrypt
+  vcs: git
+  repo: https://github.com/golang/crypto.git
+- package: golang.org/x/net/http2
+  vcs: git
+  repo: https://github.com/golang/net.git
+- package: golang.org/x/text/transform
+  vcs: git
+  repo: https://github.com/golang/text.git
+- package: golang.org/x/text/unicode/norm
+  vcs: git
+  repo: https://github.com/golang/text.git
